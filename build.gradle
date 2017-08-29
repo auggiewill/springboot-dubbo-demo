@@ -1,0 +1,44 @@
+buildscript {
+    repositories {
+        maven {
+        	url 'http://maven.aliyun.com/nexus/content/groups/public/'
+    	}
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE'
+    }
+}
+
+allprojects {
+	group 'com.auggie'
+}
+
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'eclipse'
+	apply plugin: 'idea'
+	apply plugin: 'maven'
+	apply plugin: 'spring-boot'
+
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+
+	tasks.withType(JavaCompile) {
+    	options.encoding = 'UTF-8'
+	}
+
+	repositories {
+        maven {
+        	url 'http://maven.aliyun.com/nexus/content/groups/public/'
+    	}
+    }
+
+	dependencies {
+    	compile 'io.dubbo.springboot:spring-boot-starter-dubbo:1.0.0'
+		compile 'org.springframework.boot:spring-boot-starter-web:1.5.1.RELEASE'
+    	compile 'junit:junit:4.12'
+    	testCompile('org.springframework.boot:spring-boot-starter-test:1.5.1.RELEASE') {
+			exclude module: 'commons-logging'
+		}
+	}
+}

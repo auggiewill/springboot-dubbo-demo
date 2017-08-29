@@ -1,0 +1,5 @@
+/.gradle/
+/.settings/
+*.DZ_Store
+.project
+.classpath
