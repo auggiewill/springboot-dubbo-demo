@@ -4,3 +4,4 @@
 *.DZ_Store
 .project
 .classpath
+/target/
